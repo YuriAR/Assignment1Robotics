@@ -1,5 +1,4 @@
 import lejos.nxt.*;
-import lejos.nxt.LCD;
 import lejos.robotics.subsumption.*;
 
 public class ClapBehavior implements Behavior{
@@ -19,6 +18,8 @@ public class ClapBehavior implements Behavior{
 	@Override
 	public void action() {
 		LCD.drawString("Clap", 0, 0);
+		Motor.B.forward();
+	    Motor.C.forward();
 		while( !suppressed )
 			Thread.yield();
 	}
