@@ -23,7 +23,7 @@ public class Assingment1 {
 		Behavior b1 = new ClapBehavior();
 		Behavior b2 = new Turn90LightBehavior();
 		Behavior b3 = new UltrasonicSensorBehavior();
-	    Behavior [] bArray = {b1,b2,b3};
+	    Behavior [] bArray = {b3,b2,b1};
 	    Arbitrator arby = new Arbitrator(bArray);
 	    arby.start();
 	}
