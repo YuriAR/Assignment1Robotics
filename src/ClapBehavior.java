@@ -1,14 +1,15 @@
 import lejos.nxt.*;
 import lejos.robotics.subsumption.*;
+import lejos.robotics.navigation.DifferentialPilot;
 
 public class ClapBehavior implements Behavior{
 	
 	SoundSensor sound = new SoundSensor(SensorPort.S2,true);
+	DifferentialPilot pilot = new DifferentialPilot(2.25f, 5.5f, Motor.B, Motor.C);
 	private boolean suppressed = false;
 	
 	@Override
 	public boolean takeControl() {
-		suppressed = false;
 		if(sound.readValue()>40){
 			return true;
 		}
@@ -17,11 +18,13 @@ public class ClapBehavior implements Behavior{
 
 	@Override
 	public void action() {
+		suppressed = false;
 		LCD.drawString("Clap", 0, 0);
-		Motor.B.forward();
-	    Motor.C.forward();
+		pilot.forward();
 		while( !suppressed )
 			Thread.yield();
+		pilot.stop();
+		LCD.clear();
 	}
 
 	@Override
