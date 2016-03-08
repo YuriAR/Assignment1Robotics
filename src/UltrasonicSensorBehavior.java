@@ -21,13 +21,9 @@ public class UltrasonicSensorBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		LCD.drawString("Sonar", 0, 0);
-		pilot.rotate(-180,false);
+		pilot.rotate(-170,false);
 		pilot.travel(20,false);
-		pilot.rotate(90,false);
-		pilot.forward();
-	    while( !suppressed )
-	        Thread.yield();
-		pilot.stop();
+		pilot.rotate(80,false);
 		LCD.clear();
 	}
 

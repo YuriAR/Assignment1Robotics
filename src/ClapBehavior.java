@@ -20,10 +20,6 @@ public class ClapBehavior implements Behavior{
 	public void action() {
 		suppressed = false;
 		LCD.drawString("Clap", 0, 0);
-		pilot.forward();
-		while( !suppressed )
-			Thread.yield();
-		pilot.stop();
 		LCD.clear();
 	}
 
