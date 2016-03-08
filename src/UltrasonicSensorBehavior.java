@@ -7,13 +7,11 @@ public class UltrasonicSensorBehavior implements Behavior {
 	
 	private boolean suppressed = false;
 	UltrasonicSensor sonic = new UltrasonicSensor(SensorPort.S1);
-	LightSensor light = new LightSensor(SensorPort.S3);
-	DifferentialPilot pilot = new DifferentialPilot(2.25f, 5.5f, Motor.B, Motor.C);
+	DifferentialPilot pilot = new DifferentialPilot(2.25f, 5.5f, Motor.A, Motor.B);
 	
 	@Override
 	public boolean takeControl() {
-		//Only takes control if its driving on a dark floor, that means, after the light behavior? maybe
-		if(sonic.getDistance() < 26 && light.getNormalizedLightValue() < 430){
+		if(sonic.getDistance() < 26){
 			return true;
 		}
 		return false;

@@ -14,7 +14,7 @@ public class Assingment1 {
 		LCD.clear();
 		
 /* 		UltrasonicSensor sonic = new UltrasonicSensor(SensorPort.S1);
-		LightSensor light = new LightSensor(SensorPort.S3);
+		LightSensor light = new LightSensor(SensorPort.S2);
 		while (true) {
 			LCD.drawInt(sonic.getDistance(), 4, 0, 0);
 			LCD.drawInt(light.getNormalizedLightValue(), 4, 0, 1); //400-430 (dark lab table) / 650-680 (white paper)
@@ -23,7 +23,8 @@ public class Assingment1 {
 		Behavior b1 = new ClapBehavior();
 		Behavior b2 = new Turn90LightBehavior();
 		Behavior b3 = new UltrasonicSensorBehavior();
-	    Behavior [] bArray = {b3,b2,b1};
+		Behavior b4 = new BumperBehavior();
+	    Behavior [] bArray = {b1,b2,b3,b4};
 	    Arbitrator arby = new Arbitrator(bArray);
 	    arby.start();
 	}

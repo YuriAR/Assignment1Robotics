@@ -4,8 +4,8 @@ import lejos.robotics.navigation.DifferentialPilot;
 
 public class ClapBehavior implements Behavior{
 	
-	SoundSensor sound = new SoundSensor(SensorPort.S2,true);
-	DifferentialPilot pilot = new DifferentialPilot(2.25f, 5.5f, Motor.B, Motor.C);
+	SoundSensor sound = new SoundSensor(SensorPort.S3,true);
+	DifferentialPilot pilot = new DifferentialPilot(2.25f, 5.5f, Motor.A, Motor.B);
 	private boolean suppressed = false;
 	
 	@Override

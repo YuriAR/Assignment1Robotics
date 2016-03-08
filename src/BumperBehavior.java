@@ -1,17 +1,17 @@
-import lejos.nxt.LightSensor;
 import lejos.nxt.*;
 import lejos.robotics.subsumption.Behavior;
 import lejos.robotics.navigation.DifferentialPilot;
+import lejos.nxt.TouchSensor;
 
-public class Turn90LightBehavior implements Behavior {
+public class BumperBehavior implements Behavior {
 	
 	private boolean suppressed = false;
-	LightSensor light = new LightSensor(SensorPort.S2);
+	TouchSensor touch = new TouchSensor(SensorPort.S4);
 	DifferentialPilot pilot = new DifferentialPilot(2.25f, 5.5f, Motor.A, Motor.B);
 	
 	@Override
 	public boolean takeControl() {
-		if(light.getNormalizedLightValue() > 650){
+		if(touch.isPressed()){
 			return true;
 		}
 		return false;
@@ -20,12 +20,10 @@ public class Turn90LightBehavior implements Behavior {
 	@Override
 	public void action() {
 		suppressed = false;
-		LCD.drawString("Light", 0, 0);
-		pilot.rotate(-90,false);
-		pilot.forward();
+		LCD.drawString("Stop", 0, 0);
+		pilot.stop();
 	    while( !suppressed )
 	        Thread.yield();
-		pilot.stop();
 		LCD.clear();
 	}
 
