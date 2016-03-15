@@ -15,6 +15,7 @@ Yuri Anfrisio Reis - D15124347
 
  */
 
+//Main control class
 
 public class Assingment1 {
 	
@@ -22,7 +23,7 @@ public class Assingment1 {
 															//It's used inside most of the behaviors, in the takeControl() method
 	public static void main(String[] args) {
 		LCD.drawString("Assignment 1", 0, 0);
-		Button.waitForAnyPress();
+		Button.waitForAnyPress();							
 		LCD.clear();
 		
 		Behavior b1 = new ClapBehavior();
@@ -30,7 +31,7 @@ public class Assingment1 {
 		Behavior b3 = new UltrasonicSensorBehavior();
 		Behavior b4 = new BumperBehavior();
 		Behavior b5 = new MoveForwardBehavior();
-	    Behavior [] bArray = {b1,b5,b2,b3,b4};
+	    Behavior [] bArray = {b1,b5,b2,b3,b4};				//Setting behavior priority.
 	    Arbitrator arby = new Arbitrator(bArray);
 	    arby.start();
 	}

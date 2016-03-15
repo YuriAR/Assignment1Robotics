@@ -22,7 +22,7 @@ public class BumperBehavior implements Behavior {
 	DifferentialPilot pilot = new DifferentialPilot(2.25f, 5.5f, Motor.A, Motor.B);
 	
 	@Override
-	public boolean takeControl() {
+	public boolean takeControl() {		//Wants to take control only if the touch sensor is pressed
 		if(touch.isPressed()){
 			return true;
 		}
@@ -33,7 +33,7 @@ public class BumperBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		LCD.drawString("Stop", 0, 0);
-		pilot.stop();
+		pilot.stop();					//Stopping is the only action on this behavior
 	    while( !suppressed )
 	        Thread.yield();
 		LCD.clear();

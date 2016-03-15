@@ -13,7 +13,7 @@ Yuri Anfrisio Reis - D15124347
  */
  
 //Behavior that handles the light sensor
-//This behavior rotates the robot 90 degrees and ends
+//This behavior rotates the robot 90 degrees if it detects a light surface below the robot and ends
 
 public class Turn90LightBehavior implements Behavior {
 	
@@ -41,7 +41,7 @@ public class Turn90LightBehavior implements Behavior {
 	public void action() {
 		suppressed = false;
 		LCD.drawString("Light", 0, 0);
-		pilot.rotate(-80,false);						 // 90 degrees - corrected error by testing
+		pilot.rotate(-80,false);						 // 90 degrees - value with reduced error obtained by testing
 		LCD.clear();
 	}
 

@@ -39,9 +39,9 @@ public class UltrasonicSensorBehavior implements Behavior {
 	@Override
 	public void action() {
 		LCD.drawString("Sonar", 0, 0);			
-		pilot.rotate(-150,false);				// 180 degrees - corrected error by testing
+		pilot.rotate(-150,false);				// 180 degrees - value with reduced error obtained by testing
 		pilot.travel(20,false);
-		pilot.rotate(80,false);					// 90 degrees - corrected error by testing
+		pilot.rotate(80,false);					// 90 degrees - value with reduced error obtained by testing
 		LCD.clear();
 	}
 

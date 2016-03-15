@@ -22,7 +22,7 @@ public class MoveForwardBehavior implements Behavior {
 	@Override
 	public boolean takeControl() {
 		boolean testClap = Assingment1.getClap();		//Test if the sound sensor detected a clap before (through a variable declared in main)
-		if (testClap){
+		if (testClap){									//This behavior will always want control if the clap was already executed.
 			return true;
 		}
 		else{
@@ -33,12 +33,12 @@ public class MoveForwardBehavior implements Behavior {
 
 	@Override
 	public void action() {
-		suppressed = false;
+		suppressed = false;								//Moves until supressed
 		LCD.drawString("Moving", 0, 0);
 		pilot.forward();
 	    while( !suppressed )
 	        Thread.yield();
-		pilot.stop();
+		pilot.stop();									//Stops moving before changing to other behaviors
 		LCD.clear();
 	}
 

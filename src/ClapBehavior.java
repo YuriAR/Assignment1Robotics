@@ -23,7 +23,7 @@ public class ClapBehavior implements Behavior{
 	@Override
 	public boolean takeControl() {
 		boolean testClap = Assingment1.getClap();		//Test if the sound sensor detected a clap before (through a variable declared in main)
-		if (!testClap){									//The clap behavior will only want to take control if it never did before 
+		if (!testClap){									//The clap behavior will only want to take control if it never did before (only once)
 			if(sound.readValue()>40){					//A value greater than 40 is a clap sound - value obtained by testing
 				return true;
 			}
@@ -39,15 +39,15 @@ public class ClapBehavior implements Behavior{
 	@Override
 	public void action(){
 		suppressed = false;
-		LCD.drawString("Clap", 0, 0);
+		LCD.drawString("Clap", 0, 0);				//Prints Clap and waits for 1 second
 		try{
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		}
 		catch(Exception e){
 			LCD.drawString("Exception", 0, 0);
 		}
 		LCD.clear();
-		Assingment1.setClap();			//Notify the program that the clap already happened, allowing other behaviors to take control
+		Assingment1.setClap();			//Notify the program that the clap already happened, allowing other behaviors to take control if they wish
 	}
 
 	@Override
