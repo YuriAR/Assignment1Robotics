@@ -3,6 +3,18 @@ import lejos.robotics.subsumption.Behavior;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.nxt.TouchSensor;
 
+/* 
+
+Assingment 1 - Mobile Robotics
+
+Pedro Foltran - D14128455
+Yuri Anfrisio Reis - D15124347
+
+ */
+ 
+//Behavior that handles the touch sensor
+//This behavior makes the robot stop if the bumper is activated
+ 
 public class BumperBehavior implements Behavior {
 	
 	private boolean suppressed = false;

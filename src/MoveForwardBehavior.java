@@ -2,6 +2,18 @@ import lejos.nxt.*;
 import lejos.robotics.subsumption.Behavior;
 import lejos.robotics.navigation.DifferentialPilot;
 
+/* 
+
+Assingment 1 - Mobile Robotics
+
+Pedro Foltran - D14128455
+Yuri Anfrisio Reis - D15124347
+
+ */
+ 
+//Behavior that handles the moving forward task
+//This behavior moves the robot forward until it gets supressed (always wants control)
+
 public class MoveForwardBehavior implements Behavior {
 	
 	private boolean suppressed = false;
@@ -9,7 +21,14 @@ public class MoveForwardBehavior implements Behavior {
 	
 	@Override
 	public boolean takeControl() {
-		return true;
+		boolean testClap = Assingment1.getClap();		//Test if the sound sensor detected a clap before (through a variable declared in main)
+		if (testClap){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
 	}
 
 	@Override
